@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: create account table
+      author: Anar Musayev
+      changes:
+        - createTable:
+            tableName: accounts
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: amount
+                  type: NUMERIC(16,2)
+              - column:
+                  name: currency
+                  type: VARCHAR(64)
+              - column:
+                  name: status
+                  type: VARCHAR(64)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValue: now();
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+              - column:
+                  name: customer_id
+                  type: bigint
